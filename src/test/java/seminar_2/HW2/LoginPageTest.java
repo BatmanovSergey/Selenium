@@ -1,29 +1,22 @@
-package seminar_2;
+package seminar_2.HW2;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import seminar_2.*;
 
-import java.time.Duration;
 import java.util.List;
 
-public class LoginPageTest {
+public class LoginPageTest extends AbstractTest2 {
 
-    @Test
-    void loginTest () throws InterruptedException {
-
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("start-maximized"); // режим полного экрана
-        chromeOptions.addArguments("incognito");
-        WebDriver driver = new ChromeDriver(chromeOptions);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    @Test// Работа на семинаре
+    void loginTest() throws InterruptedException {
         driver.get("https://test-stand.gb.ru/login");
 
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver, wait);
         loginPage.loginInSystem("Ms.TestTwo", "03b10cd119");
 
         List<WebElement> searchList = driver.findElements(By.partialLinkText("Hello"));
@@ -36,13 +29,12 @@ public class LoginPageTest {
         Assertions.assertEquals(1, title.size());
 
         CreatePostPage createPostPage = new CreatePostPage(driver);
-        createPostPage.savePost("1111111111", "22222222");
+        createPostPage.savePost("11111111", "22222222");
 
         Thread.sleep(5000L);
         ElementPage elementPage = new ElementPage(driver);
         elementPage.deletePost();
 
-
-//        driver.quit();
     }
+
 }

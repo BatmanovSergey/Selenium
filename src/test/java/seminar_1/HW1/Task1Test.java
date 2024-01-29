@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
-public class Task1Test extends AbstractTest {
+public class Task1Test extends AbstractTest1 {
 
     @Test
     void addNewDummyWithImplicity() throws InterruptedException {
@@ -61,8 +61,8 @@ public class Task1Test extends AbstractTest {
                 .pollingEvery(Duration.ofMillis(500L)) // Интервал опроса страницы полсекунды
                 .ignoring(NoSuchElementException.class); //Игнор NoSuchElementException
 
-        WebElement title = fluentWait.until(
-                webDriver -> webDriver.findElement(By.xpath("//*[@type='text']")));
+        WebElement title = fluentWait.until(webDriver -> webDriver.findElement(
+                By.xpath("//*[@type='text']")));
         title.sendKeys("Проверка ожидания");
 
         WebElement description = driver.findElement(By.xpath("//textarea[@class='mdc-text-field__input']"));

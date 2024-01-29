@@ -8,13 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import java.time.Duration;
 
-public class AbstractTest {
+public class AbstractTest1 {
     static WebDriver driver;
     String log = "Ms.TestTwo";
     String pass = "03b10cd119";
-
     @BeforeAll
     static void init() {
         ChromeOptions chromeOptions = new ChromeOptions();
