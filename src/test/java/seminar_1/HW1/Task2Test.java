@@ -12,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -50,7 +49,6 @@ public class Task2Test {
 //                By.xpath("//div[@id='trash']//a[@href='images/high_tatras3.jpg']")); // Вариант 2
         Assertions.assertEquals(1,picInTrash.size());
         Assertions.assertEquals("Planning the ascent",picInTrash.get(0).getAttribute("alt"));
-
     }
 
     @Test
