@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MainPage {
     @FindBy(id = "create-btn")
-    WebElement createNewPost;
+    private WebElement createNewPost;
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

@@ -1,20 +1,20 @@
 package seminar_2;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DummyCredentialsPage {
     private final WebDriverWait wait;
-    @FindBy(xpath = "//*[@type='text']")
+    @FindBy(xpath = "//h2[@id='simple-title']")
     private WebElement titleElement;
-    @FindBy(xpath = "//*[@type='text']")
-    private WebElement pwElement;
-    @FindBy(xpath = "//*[@type='password']")
-    private WebElement loginElement;
-    @FindBy(css = "form#login button")
+    @FindBy(xpath = "//div[@id='simple-content']")
+    private WebElement contentElement;
+    @FindBy(xpath = "//div[@class='mdc-dialog__actions']/button/span")
     private WebElement buttonCloseElement;
 
     public DummyCredentialsPage(WebDriver driver, WebDriverWait wait) {
@@ -22,8 +22,16 @@ public class DummyCredentialsPage {
         this.wait = wait;
     }
 
-    void findTitle (String id) {
+    public WebElement findTitle () {
+        return wait.until(ExpectedConditions.visibilityOf(titleElement));
+    }
 
+    public WebElement findLoginAndPW () {
+        return wait.until(ExpectedConditions.visibilityOf(contentElement));
+    }
+
+    public WebElement findCloseButton () {
+        return wait.until(ExpectedConditions.visibilityOf(buttonCloseElement));
     }
 
 }

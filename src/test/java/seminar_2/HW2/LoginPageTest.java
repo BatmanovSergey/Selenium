@@ -1,5 +1,6 @@
 package seminar_2.HW2;
 
+import com.codeborne.selenide.Selenide;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

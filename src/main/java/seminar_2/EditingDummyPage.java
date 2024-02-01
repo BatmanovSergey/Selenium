@@ -24,13 +24,14 @@ public class EditingDummyPage {
     public void ChangeDummyFirstName(String name) throws InterruptedException {
 
         Thread.sleep(3000L);
-//        String text = wait.until(ExpectedConditions.visibilityOf(firstNameInputField)).getText();
+//        String text = wait.until(ExpectedConditions.visibilityOf(firstNameInputField)).getAttribute("value");
+
 //        if (text.length() > 5) {
 ////            Thread.sleep(3000L);
 //            firstNameInputField.clear();
 //            firstNameInputField.sendKeys("newName");
 //            wait.until(ExpectedConditions.visibilityOf(saveButton)).click();
-//        } else if (text.length() <= 5) {
+//        } else {
 ////            Thread.sleep(2000L);
 //            String a = RandomStringUtils.randomAlphabetic(1);
 //            String b = RandomStringUtils.randomAlphanumeric(1);

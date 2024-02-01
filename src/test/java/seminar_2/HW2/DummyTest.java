@@ -68,6 +68,7 @@ public class DummyTest extends AbstractTest2 {
         StudentPage studentPage = new StudentPage(driver, wait);
         studentPage.checkStudent("20004");
 
+        // Вариант проверки - 1
         WebElement checkTitle = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath(" //h2[@id='simple-title']")));
 //        Assertions.assertEquals("Dummy credentials", checkTitle.getText());
@@ -75,12 +76,30 @@ public class DummyTest extends AbstractTest2 {
                 By.xpath(" //div[@id='simple-content']")));
 //        Assertions.assertTrue((checkLoginAndPW.getText().contains("Login")));
 //        Assertions.assertTrue((checkLoginAndPW.getText().contains("PW")));
-        WebElement checkButton = wait.until(ExpectedConditions.presenceOfElementLocated(
+        WebElement checkCloseButton = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath(" //div[@class='mdc-dialog__actions']/button/span")));
 //        Assertions.assertEquals("CLOSE", checkButton.getText());
+
+        // или проверка через Assertions.assertAll
         Assertions.assertAll(() -> Assertions.assertEquals("Dummy credentials", checkTitle.getText()),
                 () -> Assertions.assertTrue(checkLoginAndPW.getText().contains("Login")),
                 () -> Assertions.assertTrue(checkLoginAndPW.getText().contains("PW")),
-                () -> Assertions.assertEquals("CLOSE", checkButton.getText()));
+                () -> Assertions.assertEquals("CLOSE", checkCloseButton.getText()));
+
+        // Вариант проверки - 2
+
+        DummyCredentialsPage dummyCredentialsPage = new DummyCredentialsPage(driver, wait);
+        Assertions.assertEquals("Dummy credentials", dummyCredentialsPage.findTitle().getText());
+        Assertions.assertTrue((dummyCredentialsPage.findLoginAndPW().getText().contains("Login")));
+        Assertions.assertTrue((dummyCredentialsPage.findLoginAndPW().getText().contains("PW")));
+        Assertions.assertEquals("CLOSE", dummyCredentialsPage.findCloseButton().getText());
+
+        // или проверка через Assertions.assertAll
+//        Assertions.assertAll(() -> Assertions.assertEquals("Dummy credentials", dummyCredentialsPage
+//                        .findTitle().getText()),
+//                () -> Assertions.assertTrue((dummyCredentialsPage.findLoginAndPW().getText().contains("Login"))),
+//                () -> Assertions.assertTrue((dummyCredentialsPage.findLoginAndPW().getText().contains("PW"))),
+//                () -> Assertions.assertEquals("CLOSE", dummyCredentialsPage.findCloseButton().getText()));
+
     }
 }

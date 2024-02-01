@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ElementPage {
     @FindBy(xpath = "//button")
-    List<WebElement> elements;
+    private List<WebElement> elements;
 
     public ElementPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
