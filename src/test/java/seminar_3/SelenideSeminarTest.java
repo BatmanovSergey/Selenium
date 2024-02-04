@@ -40,7 +40,7 @@ public class SelenideSeminarTest {
 
 //        MainPage mainPage = new MainPage(driver);
         MainPageS3 mainPageS3 = Selenide.page(MainPageS3.class);
-        mainPageS3.createPost();
+        mainPageS3.createPostS3();
 
         List<WebElement> title = driver.findElements(By.xpath("//*[@type='text']"));
         Assertions.assertEquals(1, title.size());
@@ -64,10 +64,10 @@ public class SelenideSeminarTest {
 
 //        MainPage mainPage = new MainPage(driver);
         MainPageS3 mainPageS3 = Selenide.page(MainPageS3.class);
-        mainPageS3.openProfile();
+        mainPageS3.openProfileS3();
 
         ProfilePageS3 profilePageS3 = Selenide.page(ProfilePageS3.class);
-        Assertions.assertEquals(profilePageS3.getFullNameText(),profilePageS3.getH2FullNameText());
+        Assertions.assertEquals(profilePageS3.getFullNameTextS3(),profilePageS3.getH2FullNameTextS3());
     }
 
     @AfterEach

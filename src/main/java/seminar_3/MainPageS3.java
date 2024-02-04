@@ -11,11 +11,11 @@ public class MainPageS3 {
                 "//li[@class='svelte-1rc85o5 mdc-menu-surface--anchor']/a");
         private final SelenideElement profileButton = $x("//ul[@role='menu']/li");
 
-        public void createPost() {
+        public void createPostS3() {
             createNewPost.click();
         }
 
-        public void openProfile() {
+        public void openProfileS3() {
             userButton.click();
             profileButton.click();
         }

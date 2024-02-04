@@ -20,6 +20,7 @@ public class LoginPageTest extends AbstractTest2 {
         LoginPage loginPage = new LoginPage(driver, wait);
         loginPage.loginInSystem("Ms.TestTwo", "03b10cd119");
 
+        Thread.sleep(2000L);
         List<WebElement> searchList = driver.findElements(By.partialLinkText("Hello"));
         Assertions.assertEquals(1, searchList.size());
 
@@ -32,7 +33,7 @@ public class LoginPageTest extends AbstractTest2 {
         CreatePostPage createPostPage = new CreatePostPage(driver);
         createPostPage.savePost("11111111", "22222222");
 
-        Thread.sleep(5000L);
+        Thread.sleep(2000L);
         ElementPage elementPage = new ElementPage(driver);
         elementPage.deletePost();
 

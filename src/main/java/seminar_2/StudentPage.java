@@ -4,11 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
+
 public class StudentPage {
     private final WebDriverWait wait;
+    @FindBy(xpath = "//li[@class='svelte-1rc85o5 mdc-menu-surface--anchor']/a")
+    private WebElement userButton;
+    @FindBy(xpath =  "//ul[@role='menu']/li")
+    private WebElement profileButton;
+
     @FindBy(xpath = "//tbody[@class='mdc-data-table__content']/tr")
     private List<WebElement> StudentsTable;
 
@@ -43,6 +50,12 @@ public class StudentPage {
     private List<StudentRow> getStudentListRow() { // Получаем список строк студентов
         return StudentsTable.stream()
                 .map(root -> new StudentRow(root, wait)).toList();
+    }
+
+    public void openProfile() throws InterruptedException {
+        Thread.sleep(3000L);
+        wait.until(ExpectedConditions.visibilityOf(userButton)).click();
+        wait.until(ExpectedConditions.visibilityOf(profileButton)).click();
     }
 
 

@@ -15,6 +15,7 @@ public class CreatePostPage {
 
 
     public CreatePostPage(WebDriver driver) {
+
         PageFactory.initElements(driver, this);
     }
 
